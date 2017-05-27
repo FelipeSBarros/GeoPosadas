@@ -59,7 +59,7 @@
 
 <script>
 
-var map = L.map('map', {zoomControl:true, attributionControl:false}).setView([-27.3849836377979, -55.9074619807724], 14);
+var map = L.map('map', {zoomControl:false, attributionControl:false}).setView([-27.3849836377979, -55.9074619807724], 14);
 
 L.control.zoom({position:'topleft'}).addTo(map);
 
@@ -87,7 +87,7 @@ attribution: 'Tiles: <a href="http://stamen.com" title="Map tiles by Stamen Desi
 
 
 
-var DensmapRaster = L.imageOverlay("ShopHeatMap_data/ShopHeatMap_rasters/ShopHeatMap_Densmap.png", [[-27.4610662007541,-56.0516623084138],[-27.3443587626695,-55.7974856835506]]).addTo(map);
+var DensmapRaster = L.imageOverlay("ShopHeatMap_data/ShopHeatMap_rasters/ShopHeatMap_Densmap.png", [[-27.4589181196058,-55.9739612514663],[-27.3500654717702,-55.8665383349931]]).addTo(map);
 
 
 
@@ -197,7 +197,7 @@ attribution: 'Tiles: <a href="http://stamen.com" title="Map tiles by Stamen Desi
 
 
 
-var Densmap2Raster = L.imageOverlay("ShopHeatMap_data/ShopHeatMap_rasters/ShopHeatMap_Densmap2.png", [[-27.4610662007541,-56.0516623084138],[-27.3443587626695,-55.7974856835506]]).addTo(map);
+var Densmap2Raster = L.imageOverlay("ShopHeatMap_data/ShopHeatMap_rasters/ShopHeatMap_Densmap2.png", [[-27.4589181196058,-55.9739612514663],[-27.3500654717702,-55.8665383349931]]).addTo(map);
 
 
 
