@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+
+<style type="text/css">
+
+.leaflet-popup-content {
+  padding-right:20px !important;
+  width:auto !important;
+  max-width:900px !important;
+  max-height:468.75px !important;
+  overflow:auto !important;
+}
+
+.legend i {
+    clear: left;
+    float: left;
+    margin-right: 8px;
+    margin-top: 5px;
+  }
+  .legend p {
+    float: left;;
+    line-height: 5px;
+  }
+  .legend h1 {
+    font-size: 10px;
+    margin-top: 0px;
+    margin-bottom: 2px;
+  }
+  .legend hr {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: block;
+	  height: 1px;
+    border: 0;
+    border-top: 1px solid #AAAAAA;
+  }
+
+.info {
+    padding: 6px 8px;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+  }
+
+</style>
+
+<script src="ShopHeatMap_data/ShopHeatMap_datapoints.js"></script>
+<script src="ShopHeatMap_data/ShopHeatMap_dataicons.js"></script>
+<script src="ShopHeatMap_data/ShopHeatMap_datalines.js"></script>
+<script src="ShopHeatMap_data/ShopHeatMap_datapolygons.js"></script>
+
+<div id="map" class="map" style="height: 625px; width: 1200px"></div>
+
+<script>
+
+var map = L.map('map', {zoomControl:true, attributionControl:false}).setView([-27.3849836377979, -55.9074619807724], 14);
+
+L.control.zoom({position:'topleft'}).addTo(map);
+
+var attrib = L.control.attribution({prefix:false, position:'bottomright'}).addTo(map);
+
+                               attrib.addAttribution("TESTE!");
+
+var bm1BaseMap = L.tileLayer('http://otile1.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.jpg', {
+opacity: 1,
+minZoom: 0,
+maxZoom: 18,
+tileSize: 256,
+tms: false,
+attribution: 'Tiles: <a href="http://www.mapquest.com/" target="_blank" title="Tiles Courtesy of MapQuest">MapQuest</a> | Data: <a href="http://openstreetmap.org" title="Data by OpenStreetMap, under CC BY SA">OSM</a>',
+}).addTo(map);
+
+var bm2BaseMap = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.png', {
+opacity: 1,
+minZoom: 0,
+maxZoom: 18,
+tileSize: 256,
+tms: false,
+attribution: 'Tiles: <a href="http://stamen.com" title="Map tiles by Stamen Design, under CC BY 3.0.">Stamen Design</a> | Data: <a href="http://openstreetmap.org" title="Data by OpenStreetMap, under CC BY SA">OSM</a>',
+}).addTo(map);
+
+
+
+var DensmapRaster = L.imageOverlay("ShopHeatMap_data/ShopHeatMap_rasters/ShopHeatMap_Densmap.png", [[-27.4610662007541,-56.0516623084138],[-27.3443587626695,-55.7974856835506]]).addTo(map);
+
+
+
+
+
+
+
+var baseMaps = {
+"bm1" : bm1BaseMap,
+"bm2" : bm2BaseMap
+};
+var overlayMaps = {
+"Densmap" : DensmapRaster,
+"Densmap2" : Densmap2Raster
+};
+L.control.layers(baseMaps, overlayMaps, {position:'topright'}).addTo(map);
+
+
+
+</script>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+
+<style type="text/css">
+
+.leaflet-popup-content {
+  padding-right:20px !important;
+  width:auto !important;
+  max-width:900px !important;
+  max-height:468.75px !important;
+  overflow:auto !important;
+}
+
+.legend i {
+    clear: left;
+    float: left;
+    margin-right: 8px;
+    margin-top: 5px;
+  }
+  .legend p {
+    float: left;;
+    line-height: 5px;
+  }
+  .legend h1 {
+    font-size: 10px;
+    margin-top: 0px;
+    margin-bottom: 2px;
+  }
+  .legend hr {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: block;
+	  height: 1px;
+    border: 0;
+    border-top: 1px solid #AAAAAA;
+  }
+
+.info {
+    padding: 6px 8px;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+  }
+
+</style>
+
+<script src="ShopHeatMap_data/ShopHeatMap_datapoints.js"></script>
+<script src="ShopHeatMap_data/ShopHeatMap_dataicons.js"></script>
+<script src="ShopHeatMap_data/ShopHeatMap_datalines.js"></script>
+<script src="ShopHeatMap_data/ShopHeatMap_datapolygons.js"></script>
+
+<div id="map" class="map" style="height: 625px; width: 1200px"></div>
+
+<script>
+
+var map = L.map('map', {zoomControl:false, attributionControl:false}).setView([-27.3849836377979, -55.9074619807724], 14);
+
+L.control.zoom({position:'topleft'}).addTo(map);
+
+var attrib = L.control.attribution({prefix:false, position:'bottomright'}).addTo(map);
+
+                               attrib.addAttribution("TESTE!");
+
+var bm1BaseMap = L.tileLayer('http://otile1.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.jpg', {
+opacity: 1,
+minZoom: 0,
+maxZoom: 18,
+tileSize: 256,
+tms: false,
+attribution: 'Tiles: <a href="http://www.mapquest.com/" target="_blank" title="Tiles Courtesy of MapQuest">MapQuest</a> | Data: <a href="http://openstreetmap.org" title="Data by OpenStreetMap, under CC BY SA">OSM</a>',
+}).addTo(map);
+
+var bm2BaseMap = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.png', {
+opacity: 1,
+minZoom: 0,
+maxZoom: 18,
+tileSize: 256,
+tms: false,
+attribution: 'Tiles: <a href="http://stamen.com" title="Map tiles by Stamen Design, under CC BY 3.0.">Stamen Design</a> | Data: <a href="http://openstreetmap.org" title="Data by OpenStreetMap, under CC BY SA">OSM</a>',
+}).addTo(map);
+
+
+
+var Densmap2Raster = L.imageOverlay("ShopHeatMap_data/ShopHeatMap_rasters/ShopHeatMap_Densmap2.png", [[-27.4610662007541,-56.0516623084138],[-27.3443587626695,-55.7974856835506]]).addTo(map);
+
+
+
+
+
+
+
+var baseMaps = {
+"bm1" : bm1BaseMap,
+"bm2" : bm2BaseMap
+};
+var overlayMaps = {
+"Densmap" : DensmapRaster,
+"Densmap2" : Densmap2Raster
+};
+L.control.layers(baseMaps, overlayMaps, {position:'topright'}).addTo(map);
+
+
+
+</script>
