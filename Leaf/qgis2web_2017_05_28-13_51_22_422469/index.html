@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css" /><link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/MarkerCluster.css" />
+        <link rel="stylesheet" href="css/MarkerCluster.Default.css" />
+        <link rel="stylesheet" href="css/Control.OSMGeocoder.css" />
+        <link rel="stylesheet" href="css/leaflet-measure.css" />
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
+        <script src="js/multi-style-layer.js"></script>
+        <script src="js/leaflet-heat.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/OSMBuildings-Leaflet.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/leaflet-tilelayer-wmts.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/Control.OSMGeocoder.js"></script>
+        <script src="js/leaflet-measure.js"></script>
+        <script src="js/leaflet.markercluster.js"></script>
+        <script src="data/Posadas2copy0.js"></script>
+        <script>
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:13, minZoom:1
+        })
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        L.control.locate().addTo(map);
+        var measureControl = new L.Control.Measure({
+            primaryLengthUnit: 'meters',
+            secondaryLengthUnit: 'kilometers',
+            primaryAreaUnit: 'sqmeters',
+            secondaryAreaUnit: 'hectares'
+        });
+        measureControl.addTo(map);
+        var bounds_group = new L.featureGroup([]);
+        var basemap0 = L.tileLayer('http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://www.opencyclemap.org">OpenCycleMap</a>,&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 13
+        });
+        basemap0.addTo(map);
+        function setBounds() {
+            if (bounds_group.getLayers().length) {
+                map.fitBounds(bounds_group.getBounds());
+            }
+        }
+        function geoJson2heat(geojson, weight) {
+          return geojson.features.map(function(feature) {
+            return [
+              feature.geometry.coordinates[1],
+              feature.geometry.coordinates[0],
+              feature.properties[weight]
+            ];
+          });
+        }
+        function pop_Posadas2copy0(feature, layer) {
+        }
+
+        function style_Posadas2copy0_0(feature) {
+            if (feature.properties['totalpobl'] >= 13.000000 && feature.properties['totalpobl'] <= 152.390824 ) {
+                return {
+                pane: 'pane_Posadas2copy0',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.5)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,178,0.5)',
+            }
+            }
+            if (feature.properties['totalpobl'] >= 152.390824 && feature.properties['totalpobl'] <= 574.609646 ) {
+                return {
+                pane: 'pane_Posadas2copy0',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.5)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(254,214,109,0.5)',
+            }
+            }
+            if (feature.properties['totalpobl'] >= 574.609646 && feature.properties['totalpobl'] <= 996.828467 ) {
+                return {
+                pane: 'pane_Posadas2copy0',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.5)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(253,166,72,0.5)',
+            }
+            }
+            if (feature.properties['totalpobl'] >= 996.828467 && feature.properties['totalpobl'] <= 1419.047289 ) {
+                return {
+                pane: 'pane_Posadas2copy0',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.5)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(247,108,48,0.5)',
+            }
+            }
+            if (feature.properties['totalpobl'] >= 1419.047289 && feature.properties['totalpobl'] <= 1841.266110 ) {
+                return {
+                pane: 'pane_Posadas2copy0',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.5)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(229,47,33,0.5)',
+            }
+            }
+            if (feature.properties['totalpobl'] >= 1841.266110 && feature.properties['totalpobl'] <= 2117.000000 ) {
+                return {
+                pane: 'pane_Posadas2copy0',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.5)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(189,0,38,0.5)',
+            }
+            }
+        }
+        map.createPane('pane_Posadas2copy0');
+        map.getPane('pane_Posadas2copy0').style.zIndex = 400;
+        map.getPane('pane_Posadas2copy0').style['mix-blend-mode'] = 'normal';
+    var layer_Posadas2copy0 = new L.geoJson.multiStyle(json_Posadas2copy0, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_Posadas2copy0',
+        onEachFeature: pop_Posadas2copy0,
+        styles: [style_Posadas2copy0_0,]
+    });
+        bounds_group.addLayer(layer_Posadas2copy0);
+        map.addLayer(layer_Posadas2copy0);
+        var osmGeocoder = new L.Control.OSMGeocoder({
+            collapsed: false,
+            position: 'topright',
+            text: 'Search',
+        });
+        osmGeocoder.addTo(map);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'Posadas2 copy<br /><table><tr><td style="text-align: center;"><img src="legend/Posadas2copy0_200StdDev0.png" /></td><td>< -2.00 Std Dev</td></tr><tr><td style="text-align: center;"><img src="legend/Posadas2copy0_200StdDev100StdDev1.png" /></td><td>-2.00 Std Dev - -1.00 Std Dev</td></tr><tr><td style="text-align: center;"><img src="legend/Posadas2copy0_100StdDev000StdDev2.png" /></td><td>-1.00 Std Dev - 0.00 Std Dev</td></tr><tr><td style="text-align: center;"><img src="legend/Posadas2copy0_000StdDev100StdDev3.png" /></td><td>0.00 Std Dev - 1.00 Std Dev</td></tr><tr><td style="text-align: center;"><img src="legend/Posadas2copy0_100StdDev200StdDev4.png" /></td><td>1.00 Std Dev - 2.00 Std Dev</td></tr><tr><td style="text-align: center;"><img src="legend/Posadas2copy0_200StdDev5.png" /></td><td>>= 2.00 Std Dev</td></tr></table>': layer_Posadas2copy0,}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>
