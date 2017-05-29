@@ -59,6 +59,8 @@ densshop <- mask(densshop, posadas2)
 plot(densshop)
 writeRaster(densshop, "densshop.tif", overwrite=TRUE)
 
+densshop <- as.SpatialGridDataFrame.im(densrandom)
+
 densrandom <- density.ppp(randomppp, sigma=min(bw.scott(randomppp)))
 plot(densrandom)
 densrandom = raster(densrandom)
@@ -67,6 +69,8 @@ densrandom@crs <- WGS
 densrandom <- mask(densrandom, posadas2)
 plot(densrandom)
 writeRaster(densrandom, "densrandom.tif", overwrite=TRUE)
+
+densrandom <- as.SpatialGridDataFrame.im
 
 densbuild <- density.ppp(buildpppp, sigma=min(bw.scott(buildpppp)))
 plot(densbuild)
