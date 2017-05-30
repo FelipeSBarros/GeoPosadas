@@ -1,12 +1,13 @@
 # GeoPosadas  
-Projecto de geomarketing desarojado en el [Hackathon Posadas](hackathonposadas.ddns.net/)  
+Projecto de geomarketing desarojado en el [Hackathon Posadas](http://hackathonposadas.ddns.net/)  
 
 
-## Hecho por:
-Carlos Rivero  
-Cristian Oliveira  
-Felipe Barros  
-Pablo Esquivel  
-Veronica Gen  
-Victor Rojas  
+## Desarolladores:
+**Carlos Rivero**  
+**Cristian Oliveira**  
+**Felipe Barros**  
+**Pablo Esquivel**  
+**Veronica Gen**  
 
+![ImageLicense](https://i.creativecommons.org/l/by-sa/3.0/88x31.png)  
+Esta obra está bajo una Licencia Creative Commons Atribución-CompartirIgual 3.0 Unported.
